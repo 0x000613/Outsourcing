@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\hacke\source\repos\2020-05-08-중간고사-1\DaysofLife\main.cpp(21,6): warning C4101:  'test' :참조되지 않은 지역 변수입니다.
+  DaysofLife.vcxproj -> C:\Users\hacke\source\repos\2020-05-08-중간고사-1\Debug\DaysofLife.exe

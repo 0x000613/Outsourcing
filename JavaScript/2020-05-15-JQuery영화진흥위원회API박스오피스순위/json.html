@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>박스오피스</title>
+	<style>
+
+
+	</style>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>
+		function movie(movieCd) {
+			$("#memo").empty();
+			var url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.xml?key=430156241533f1d058c603178cc3ca0e&movieCd=";
+			url = url + movieCd;
+
+			$.ajax({
+				url: url,
+				type: "GET",
+				dataType: "xml",
+				success: function(movie_data) {
+					var str = "";
+					str = str + "<div>" + $(movie_data).find("movieNm").text() + "(";
+					str = str + $(movie_data).find("movieNmEn").text() + ")</div>";
+
+					str = str + "<div>" + $(movie_data).find("nationNm").text() + ", " + $(movie_data).find("openDt").text() + "개봉, " + $(movie_data).find("showTm").text() + "분</div>";
+
+					str = str + "<ul>";
+					$(movie_data).find("actor").each(function() {
+						str = str + "<li>" + $(this).find("peopleNm").text() + "</li>";
+					});
+					str = str + "</ul>";
+					$("#memo").append(str);
+				},
+				error: function() {
+					alert("Error ...");
+				}
+			});
+		}
+
+		
+
+		$(document).ready(function() {
+			document.getElementById("today").valueAsDate = new Date();
+
+			$("#ok").click(function() {
+				$("#list").empty();
+				$("#memo").empty();
+
+				var url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=c68166582e884ec3807477495e43cd6e&targetDt=";
+				date_list = $('#today').val().split('-');
+				url = url + date_list[0] + date_list[1] + date_list[2];
+
+				$.ajax({
+					url: url,
+					type: "GET",
+					dataType: "xml",
+					success: function(mydata) {
+						var str = "";
+
+						if ($(mydata).find("dailyBoxOffice").text() == "") {
+							$("#list").append("자료가 없습니다.");;
+							return;
+						}
+						$(mydata).find("dailyBoxOffice").each(function() {
+							str = str + $(this).find("rank").text() + "위 "
+
+							str = str + "<a href='#' onclick='javascript:movie(" + $(this).find("movieCd").text() + ")'>";
+							str = str + $(this).find("movieNm").text() + "</a>";
+
+							str = str + " (전일대비 ";
+							rankInten = eval($(this).find("rankInten").text());
+							if (rankInten > 0) {
+								str = str + "+" + rankInten + ", "
+							} else if (rankInten < 0) {
+								str = str + "-" + Math.abs(rankInten) + ", "
+							} else {
+								str = str + rankInten + ", "
+							}
+
+							str = str + "누적관객수 " + $(this).find("audiAcc").text() + "명)<br>";
+						});
+						$("#list").append(str);
+					},
+					error: function() {
+						$("#list").append("Error ...");
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id= "big title">All of Movie </div>
+	<div id="choice">
+		<input type="date" id="today">
+		<button id="ok">확인</button>
+	</div>
+	<div id="title">
+		일별 박스오피스
+	</div>
+    </div>
+    <div id="list">
+	</div>
+	<div id="memo">
+	</div>
+    <hr>
+
+    <!-- 배우 -->
+    <p>배우 검색</p>
+    <!-- 배우명 입력란 -->
+    <input id="actor-name" type="text">
+    <!-- 하단의 ajax를 호출하기 위한 버튼 -->
+    <button id="actor-show">검색</button>
+    <div id = "actors">
+	</div>
+    <hr>
+    <script>
+    // 버튼이 클릭되었을때 AJAX 통신을 이용해 API 사이트로부터 배우의 정보를 받음
+    $('#actor-show').click(function() {
+        // 배우 검색 버튼이 클릭되었을때 기존 actors div의 내용을 삭제 (재검색시 기존 검색정보를 초기화 하기 위해서)
+        $("#actors").empty()
+        $.ajax({
+            type: 'get',
+            data: {},
+            // actor-name input박스에서 입력받은 날짜를 토대로 rest api 요청 (JSON 데이터형을 사용함)
+            url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=c68166582e884ec3807477495e43cd6e&peopleNm=" + $("#actor-name").val(),
+            success: function(data) {
+                // actorData에 API로부터 respon받은 데이터의 peopleListResult 요소를 저장
+                var actorData = data.peopleListResult;
+                // 반복문을 시작하기 전에 actors div에 총 몇명의 배우가 검색되었는지 표시
+                $("#actors").append("<p>총 검색결과 : " + actorData["totCnt"] + "명</p>")
+                // 검색된 배우들의 count만큼 반복
+                for(var i in actorData["peopleList"])
+                {
+                    // 검색된 배우들의 배우명, 영문 배우명, 필모리스트를 actors div에 추가
+                    $("#actors").append('(' + i + ') 배우명 : ' + actorData["peopleList"][i]["peopleNm"] + "<br>" +
+                    '- 영어명 : ' + actorData["peopleList"][i]["peopleNmEn"] + "<br>" + 
+                    '- 필모리스트 : ' + actorData["peopleList"][i]["filmoNames"] + "<br><br>")
+                }
+            }
+        });
+    });
+    </script>
+
+    <!-- 영화사 -->
+    <p>영화사 검색</p>
+    <!-- 영화사 입력란 -->
+    <input id="company-name" type="text">
+    <!-- 하단의 ajax를 호출하기 위한 버튼 -->
+    <button id="company-show">검색</button>
+    <div id = "companys">
+	</div>
+    <hr>
+    <script>
+    // 버튼이 클릭되었을때 AJAX 통신을 이용해 API 사이트로부터 영화사의 정보를 받음
+    $('#company-show').click(function() {
+        // 영화사 검색 버튼이 클릭되었을때 기존 companys div의 내용을 삭제 (재검색시 기존 검색정보를 초기화 하기 위해서)
+        $("#companys").empty()
+        $.ajax({
+            type: 'get',
+            data: {},
+            // company-name input박스에서 입력받은 날짜를 토대로 rest api 요청 (JSON 데이터형을 사용함)
+            url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/company/searchCompanyList.json?key=c68166582e884ec3807477495e43cd6e&companyNm=" + $("#company-name").val(),
+            success: function(data) {
+                // companyData에 API로부터 respon받은 데이터의 companyListResult 요소를 저장
+                var companyData = data.companyListResult;
+                // 반복문을 시작하기 전에 companys div에 총 몇개의 영화사가 검색되었는지 표시
+                $("#companys").append("<p>총 검색결과 : " + companyData["totCnt"] + "개</p>")
+                // 검색된 영화사들의 count만큼 반복
+                for(var i in companyData["companyList"])
+                {
+                    // 검색된 회사들의 회사명, 영문 회사명, CEO 이름, 필모리스트를 companys div에 추가
+                    $("#companys").append('(' + i + ') 회사명 : ' + companyData["companyList"][i]["companyNm"] + "<br>" +
+                    '- 영어명 : ' + companyData["companyList"][i]["companyNmEn"] + "<br>" + 
+                    '- CEO : ' + companyData["companyList"][i]["ceoNm"] + "<br>" + 
+                    '- 필모리스트 : ' + companyData["companyList"][i]["filmoNames"] + "<br><br>")
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>

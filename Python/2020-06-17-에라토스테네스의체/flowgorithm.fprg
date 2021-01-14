@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="hacke"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-06-17 09:34:10 &#50724;&#54980;"/>
+        <attribute name="created" value="aGFja2U7REVTS1RPUC03SkFLTEgyOzIwMjAtMDYtMTc7MDk6MjQ6MDYg7Jik7ZuEOzEwODM4OA=="/>
+        <attribute name="edited" value="aGFja2U7REVTS1RPUC03SkFLTEgyOzIwMjAtMDYtMTc7MDk6MzQ6MTAg7Jik7ZuEOzQ7MTA4NDk1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="n+1" direction="inc" step="1">
+                <call expression="isPrime"/>
+            </for>
+        </body>
+    </function>
+    <function name="isPrime" type="None" variable="">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <if expression="a&lt;2">
+                <then>
+                    <breakpoint/>
+                </then>
+                <else>
+                    <for variable="i" start="2" end="a" direction="inc" step="1">
+                        <if expression="a%i==0">
+                            <then>
+                                <breakpoint/>
+                            </then>
+                            <else>
+                                <breakpoint/>
+                            </else>
+                        </if>
+                    </for>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

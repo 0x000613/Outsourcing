@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <style>
+
+    #x {
+      text-align: right;
+      margin: 5px;
+      width: 30px;
+    }
+
+    #y {
+      text-align: right;
+      margin: 5px;
+      width: 30px;
+    }
+
+    #z {
+      text-align: right;
+      margin: 5px;
+      width: 30px;
+    }
+
+    #a {
+      text-align: right;
+      margin: 5px;
+      width: 30px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <b>메뉴</b>
+
+  <form>
+    <input type="checkbox" id="am" />아메리카노(2,000원)<input type="number" size="3" value="0" id="x" />잔<br />
+    <input type="checkbox" id="ca" />카페라떼(2,500원)<input type="number" size="3" value="0" id="y" />잔<br />
+    <input type="checkbox" id="hot" />핫초코(2,500원)<input type="number" size="3" value="0" id="z" />잔<br />
+    <input type="checkbox" id="capu" />카푸치노(2,800원)<input type="number" size="3" value="0" id="a" />잔<br />
+  </form>
+  <input type="button" id="jumun" value="주문하기" />
+  <div id="d"></div>
+  <div id="out"></div>
+
+  <!-- JQuery Script area -->
+  <script>
+    $(document).ready(function() {
+      // jumun이라는 id를 가진 버튼이 클릭되면 아래 함수가 실행되고
+      $('#jumun').click(function() {
+        // d라는 id를 가진 요소의 값을 empty() 함수를 이용해 초기화(clear)해줌
+        // 여담으로 empty()와 비슷한 remove()라는 함수가 있는데 이 remove()함수는 div의 요소 내용이 아닌 div 자체를 삭제하므로 사용에 유의해야함
+        $("#d").empty()
+        var price = 0;
+        var xval = " ";
+        $('#d').append("</br>주문한 메뉴</br>")
+        $('input:checkbox:checked').each(function() {
+          if ($(this).is('#am')) {
+            price += 2000 * x.value;
+          }
+          else if ($(this).is('#ca')) {
+            price += 2500 * y.value;
+          } else if ($(this).is('#hot')) {
+            price += 2500 * z.value;
+          } else if ($(this).is('#capu')) {
+            price += 2800 * a.value;
+          }
+        })
+
+        $('input:checkbox:checked').each(function() {
+          if ($(this).is('#am')){
+            // 문자열 + 값 + 문자열 형태로 출력 구현함, +연산으로 각 값들을 더할 수 있음
+            // 코드해석 : d라는 id를 가진 div에 ("아메리카노(2,000원)" + x라는 id를 가진 요소의 값) + "잔<br>" 문자열을 합연산하여 추가함
+            // 요소.val() 함수를 이용하면 해당 요소의 값을 가져올 수 있음
+            $('#d').append('아메리카노(2,000원)' + $('#x').val() + '잔<br>')
+          }
+          else if ($(this).is('#ca')){
+            $('#d').append('카페라떼(2,500원)' + $('#y').val() + '잔<br>')
+          }
+          else if ($(this).is('#hot')){
+            $('#d').append('핫초코(2,500원)' + $('#z').val() + '잔<br>')
+          }
+          else  if ($(this).is('#capu')){
+            $('#d').append('카푸치노(2,800원)' + $('#a').val() + '잔<br>')
+          }
+        })
+        // 마찬가지로 위의 문자열 합연산을 통해 문자열을 구성하고 구성한 최종 결제 금액을 사용자에게 출력해줌
+        $('#out').text('총 결제 금액 : ' + price + '원');
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+{
+    "Class01_001": {
+        "students": [
+            {
+                "id": "kate",
+                "friend": "1"
+
+            },
+            {
+                "id": "Beth",
+                "friend": "2"
+            }
+
+        ],
+        "ep": "1"
+    },
+    "Class01_003": {
+        "students": [
+            {
+                "id": "Stella",
+                "friend": "1"
+
+            },
+            {
+                "id": "Beth",
+                "friend": "2"
+            }
+
+        ],
+        "ep": "1"
+    },
+    "Class01_002": {
+        "students": [
+            {
+                "id": "Lena",
+                "friend": "1"
+
+            },
+            {
+                "id": "Beth",
+                "friend": "2"
+            }
+
+        ],
+        "ep": "1"
+    },
+    "Class02_001": {
+        "students": [
+            {
+                "id": "Mike",
+                "friend": "1"
+
+            },
+            {
+                "id": "Beth",
+                "friend": "2"
+            }
+
+        ],
+        "ep": "1"
+    }
+
+}

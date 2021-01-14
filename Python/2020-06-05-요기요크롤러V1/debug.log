@@ -1,0 +1,40 @@
+[0605/093945.557:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0605/093957.876:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0605/105425.146:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0605/105817.430:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0605/112930.082:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0605/112930.083:ERROR:exception_snapshot_win.cc(98)] thread ID 50316 not found in process
+[0605/112930.090:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0605/112930.091:ERROR:exception_snapshot_win.cc(98)] thread ID 41136 not found in process
+[0605/112930.116:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0605/112930.116:ERROR:exception_snapshot_win.cc(98)] thread ID 60384 not found in process
+[0605/120446.620:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0605/120448.094:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0609/020724.055:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/020724.056:ERROR:exception_snapshot_win.cc(98)] thread ID 16156 not found in process
+[0609/020724.070:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/020724.070:ERROR:exception_snapshot_win.cc(98)] thread ID 21432 not found in process
+[0609/035627.783:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035627.785:ERROR:exception_snapshot_win.cc(98)] thread ID 15696 not found in process
+[0609/035627.797:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035627.797:ERROR:exception_snapshot_win.cc(98)] thread ID 4884 not found in process
+[0609/035752.137:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035752.138:ERROR:exception_snapshot_win.cc(98)] thread ID 8736 not found in process
+[0609/035752.151:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035752.152:ERROR:exception_snapshot_win.cc(98)] thread ID 18048 not found in process
+[0609/035752.151:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035752.152:ERROR:exception_snapshot_win.cc(98)] thread ID 12112 not found in process
+[0609/035940.605:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035940.605:ERROR:exception_snapshot_win.cc(98)] thread ID 16480 not found in process
+[0609/035940.622:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/035940.622:ERROR:exception_snapshot_win.cc(98)] thread ID 21948 not found in process
+[0609/041547.930:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/041547.931:ERROR:exception_snapshot_win.cc(98)] thread ID 22024 not found in process
+[0609/041547.952:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/041547.952:ERROR:exception_snapshot_win.cc(98)] thread ID 2408 not found in process
+[0609/041803.537:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/041803.538:ERROR:exception_snapshot_win.cc(98)] thread ID 15536 not found in process
+[0609/041803.538:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/041803.538:ERROR:exception_snapshot_win.cc(98)] thread ID 16408 not found in process
+[0609/041803.556:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0609/041803.556:ERROR:exception_snapshot_win.cc(98)] thread ID 10928 not found in process

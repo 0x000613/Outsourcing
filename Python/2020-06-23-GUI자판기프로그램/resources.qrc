@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="milk">
+    <file>blackcoffe.png</file>
+    <file>autoseller.png</file>
+    <file>milkcoffe.png</file>
+    <file>sugarcoffe.png</file>
+  </qresource>
+</RCC>

@@ -29,7 +29,7 @@ while True:
 clear()
 
 # 경로 설정
-baseDIR = os.path.realpath(os.path.dirname(__file__)) # 기초 경로 설정
+baseDIR = os.path.dirname(os.path.realpath(__file__)) # 기초 경로 설정
 driver = os.path.join(baseDIR, "chromedriver") # 드라이버 경로 설정
 extensionsDIR = os.path.join(baseDIR, "extensions") # 확장 프로그램 경로 설정
 

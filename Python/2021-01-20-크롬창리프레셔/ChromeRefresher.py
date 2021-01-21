@@ -1,5 +1,6 @@
 import os
 import time
+import undetected_chromedriver as uc
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -28,19 +29,20 @@ while True:
         clear()
 clear()
 
+uc.TARGET_VERSION = 88
 # 경로 설정
 baseDIR = os.path.dirname(os.path.realpath(__file__)) # 기초 경로 설정
 driver = os.path.join(baseDIR, "chromedriver") # 드라이버 경로 설정
+uc.install(executable_path=driver,)
 extensionsDIR = os.path.join(baseDIR, "extensions") # 확장 프로그램 경로 설정
 
 # 확장 프로그램 설정
-options = Options()
+opts= uc.ChromeOptions
 extensions = ["fngmhnnpilhplaeedifhccceomclgfbg.crx", "ogeebjpdeabhncjpfhgdibjajcajepgg.crx", "Lauras_Auto_Click_v_1.3.7.crx"]
 for extension in extensions:
-    options.add_extension(os.path.join(extensionsDIR, extension))
-
-# 드라이버 설정
-#driver = webdriver.Chrome(driver, chrome_options=options)
+    #opts.add_extension(os.path.join(extensionsDIR, extension))
+    opts.add_argument
+driver = uc.Chrome(options=opts)
 
 drivers = []
 

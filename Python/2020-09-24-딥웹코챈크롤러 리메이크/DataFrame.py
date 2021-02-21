@@ -7,7 +7,7 @@ a = [('로리', 42), ('N번방', 25), ('박사방', 22), ('대마', 19), ('강�
 def createGraph(wordFrequency):
     # matplot 폰트 설정
     matplotlib.rcParams['axes.unicode_minus'] = False
-    matplotlib.rcParams['font.family'] = "Hancom Gothic"
+    matplotlib.rcParams['font.family'] = "AppleGothic"
 
     word = []
     count = []

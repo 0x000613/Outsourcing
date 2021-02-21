@@ -2,7 +2,6 @@ import os
 import time
 import pandas as pd
 from selenium import webdriver
-from bs4 import BeautifulSoup
 
 # 정렬되지 않은 데이트포맷을 깔끔한 데이트포맷으로 변환하여 반환하는 함수
 def sortDate(date):
@@ -13,7 +12,7 @@ def sortDate(date):
 # 20190101 ~ 20210101
 
 baseDIR = os.path.dirname(os.path.realpath(__file__))
-driverPath = os.path.join(baseDIR, "chromedriver.exe")
+driverPath = os.path.join(baseDIR, "chromedriver")
 driver = webdriver.Chrome(executable_path=driverPath)
 pklPath = os.path.join(baseDIR, "NaverBlog.pkl")
 
